@@ -1,0 +1,38 @@
+<h2>Student List</h2>
+
+<div>
+  <button (click)="add()">
+    Add
+  </button>
+</div>
+
+<table class='table' *ngIf="students">
+<thead>
+  <tr>
+    <th>StudentId</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Nationality</th>
+    <th>Major</th>
+  </tr>
+
+</thead>
+<tbody>
+
+  <tr *ngFor="let s of students; let i=index;">
+
+    <td>{{ s.studentId  }}</td>
+    <td>{{ s.name  }}</td>
+    <td>{{ s.age  }}</td>
+    <td>{{ s.nationalityName  }}</td>
+    <td>{{ s.majorName  }}</td>
+
+    <td>
+      <a [routerLink]="['/student-detail/', s.studentId]"> Detail </a>
+      <a [routerLink]="['/student-update/', s.studentId]"> Edit </a>
+      <a [routerLink]="" (click)="delete(s.studentId)"> Delete </a>
+  
+    </td>
+    </tr>
+
+</tbody>

@@ -1,0 +1,26 @@
+<div class="col-md-12 row">
+  <div class="col-md-4">
+  </div>
+
+
+  <div class="col-md-4">
+    <div *ngIf="student" class="students">
+      <h2>{{student.name | uppercase}} Details</h2>
+      <div><span>Age: </span>{{student.age}}</div>
+      <div><span>Nationality: </span>{{student.nationality}}</div>
+      <div><span>Major: </span>{{student.major}}</div>
+      <div>
+        <button class="btn btn-warning espacio" routerLink="/student-update/{{student.studentId}}">
+          Edit
+        </button>
+        <button class="btn btn-primary espacio" routerLink="/students">
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="col-md-4">
+  </div>
+</div>

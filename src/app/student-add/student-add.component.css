@@ -1,0 +1,13 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+h2{
+    color: teal;
+}
+label{
+    font-size: large;
+    color: teal;
+}
+
+.espacio{
+    margin-right: 20px;
+}

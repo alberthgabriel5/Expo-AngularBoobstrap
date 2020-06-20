@@ -1,0 +1,58 @@
+<h2>Student Add (With Validations) </h2>
+<form [formGroup]="studentForm" (ngSubmit)="addStudent()" #formDir="ngForm">
+    <div class="form-group row">
+    
+        <label class=" control-label col-md-12" for="name">Name</label>
+        <div class="col-md-4">
+          <input class="form-control" type="text" formControlName="name">
+        </div>
+        <span class="text-danger" *ngIf="studentForm.hasError('required', 'name') && formDir.submitted">
+          Name is required.
+        </span>
+      </div>
+      <div class="form-group row">
+        <label class=" control-label col-md-12" for="age">Age</label>
+        <div class="col-md-4">
+          <input class="form-control" type="text" formControlName="age">
+        </div>
+        <span class="text-danger" *ngIf="studentForm.hasError('required', 'age') && formDir.submitted">
+          Age is required.
+        </span>
+       
+        <span class="text-danger" *ngIf="studentForm.hasError('pattern', 'age') && formDir.submitted">
+            At least two digits required.
+        </span>
+
+
+      </div>
+      <div class="form-group row">
+        <label class="control-label col-md-12" for="nationality">Nationality</label>
+        <div class="col-md-4">
+          <!-- <input class="form-control" type="text" formControlName="nationality"> -->
+          <select class="form-control form-control-sm" [(ngModel)]="studentForm.nationality" formControlName="nationality">  
+            <option  value="-1" >Choose One</option>
+            <option *ngFor="let nationality of nationalities" value="{{nationality.nationalityId}}">{{nationality.name}}</option>
+        </select>
+        </div>
+        <span class="text-danger" *ngIf="studentForm.hasError('required', 'nationality') && formDir.submitted">
+          Nationality is required
+        </span>
+      </div>
+      <div class="form-group row">
+        <label class="control-label col-md-12" for="major">Major</label>
+        <div class="col-md-4">
+          <!-- <input class="form-control" type="text" formControlName="major" data-val="true"> -->
+          <select class="form-control form-control-sm" [(ngModel)]="studentForm.major" formControlName="major">  
+            <option  value="-1" >Choose One</option>
+            <option *ngFor="let major of majors" value="{{major.majorId}}">{{major.name}}</option>
+          </select>
+        </div>
+        <span class="text-danger" *ngIf="studentForm.hasError('required', 'major') && formDir.submitted">
+          Major is required
+        </span>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-default">Save</button>
+        <button class="btn" (click)="cancel()">Cancel</button>
+      </div>
+</form>

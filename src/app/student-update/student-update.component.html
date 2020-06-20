@@ -1,0 +1,48 @@
+<div class="col-md-12 ">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+      <div>
+        <h2>Student Update</h2>
+        <div>
+          <label>Name:
+          </label><br>
+          <input class="form-control" [(ngModel)]="studentData.name" placeholder="Name"/>
+
+          <label>Age:
+          </label><br>
+          <input class="form-control" [(ngModel)]="studentData.age" placeholder="Age"/>
+
+          <label>Nationality:
+            <!-- <input class="form-control" [(ngModel)]="studentData.nationality" placeholder="Nationality"/> -->
+           
+          </label><br>
+          <select class="form-control form-control-sm" [(ngModel)]="studentData.nationality">  
+            <option [disabled]="disabled">Choose One</option>
+            <option *ngFor="let nationality of nationalities" value="{{nationality.nationalityId}}">{{nationality.name}}</option>
+        </select>
+          <label>Major:
+            <!-- <input class="form-control" [(ngModel)]="studentData.major" placeholder="Major"/> -->
+            
+          </label><br>
+          <select class="form-control form-control-sm" [(ngModel)]="studentData.major">  
+            <option [disabled]="disabled">Choose One</option>
+            <option *ngFor="let major of majors" value="{{major.majorId}}">{{major.name}}</option>
+          </select>
+        </div><br>
+        <button class="btn btn-success espacio" (click)="updateStudent()">Update</button>
+        <button class="btn btn-danger espacio" (click)="backToList()">Cancel</button>
+      </div>
+
+    </div>
+
+
+
+    <div class="col-md-4"></div>
+
+
+</div>
+
+
+
+
